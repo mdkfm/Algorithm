@@ -100,7 +100,7 @@ class Graph():
 					for u in self.ad_list(c):
 						if visited[u] == 0:
 							s.append(u)
-							instack[u-1] == 1
+							instack[u-1] = 1
 						elif instack[u-1] == 1:
 							return True
 		return False
