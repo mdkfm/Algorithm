@@ -11,5 +11,6 @@ def kruskal(wgraph):
 		span_tree.add_edge(edge)
 		if span_tree.has_circle():
 			span_tree.cut_edge(edge)
+	
 	return span_tree
 

@@ -147,8 +147,15 @@ class weighted_graph(Graph):
 		self.vertex_id = {vertex:num for num, vertex in enumerate(vertexs)}
 		self.vertex_num = len(vertexs)
 		self.edges = edges
-		self.weights = weights
-	
+		if edges.has_direction:
+			self.weights = weights
+		else:
+			self.weights = {}
+			for edge, weight in weights.items():
+				u, v = edge
+				self.weights[(u, v)] = weight
+				self.weights[(v, u)] = weight
+				
 	def add_weight(self, weights):
 		for edge, weight in weights:
 			self.weights[edge] = weight
